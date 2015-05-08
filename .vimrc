@@ -1,0 +1,120 @@
+set t_Co=256
+syntax on
+
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'vim-scripts/Pydiction'
+Plugin 'nvie/vim-flake8'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+"Pydiction"
+let g:pydiction_location = '/home/michaemichaell/.vim/bundle/Pydiction/complete-dict'
+let g:pydiction_menu_height = 3
+
+"airline"
+let g:airline_powerline_fonts = 1
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 20 
+"let g:airline_theme='solarized'
+set laststatus=2
+
+"syntasitic"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_open = 1
+let g:syntastic_loc_list_height=5
+
+" automatically reload vimrc when it's saved
+ au BufWritePost .vimrc so ~/.vimrc
+
+
+
+" configure Vim to auto-complete programming language syntaxe
+let g:syntastic_python_python_exec = '/path/to/python3'
+
+
+"ctrlP"
+let g:ctrlp_masetp = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " ignorecase
+
+
+"TMUX-Line"
+"let g:airline#extensions#tmuxline#enabled = 1 
+let g:tmuxline_preset = 'powerline'
+let g:tmuxline_theme = 'powerline'
+
+
+"pep und flakes"
+let g:pyflakes_use_quickfix = 0
+
+
+"auto-complete-python"
+ au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
+
+"Disable arrow-keys"
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+
+"Disable arrow-keys in insert mode"
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+
+" Leader Key" 
+let mapleader=","
+
+
+"vimrc standart"
+set incsearch
+set number
+set linebreak
+set visualbell
+set showmatch
+set hlsearch
+set smartcase
+set autoindent
+set smarttab
+set smartindent
+set colorcolumn=80
+highlight ColorColumn ctermbg=black
+set background=dark
+set tabstop=8
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
+set tabstop=8
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set modeline 
+
+set ruler
+set rnu
+
+set undolevels=1000
