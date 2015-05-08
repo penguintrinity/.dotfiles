@@ -106,15 +106,11 @@ set background=dark
 set tabstop=8
 set expandtab
 set shiftwidth=4
-set softtabstop=4
-
 set tabstop=8
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set modeline 
-
 set ruler
 set rnu
-
 set undolevels=1000
