@@ -10,13 +10,18 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"Vundle"
+Plugin 'gmarik/Vundle.vim'
+
+"python"
 Plugin 'vim-scripts/Pydiction'
 Plugin 'nvie/vim-flake8'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'kien/ctrlp.vim'
+
+Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/syntastic'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 
 call vundle#end()            " required
@@ -44,7 +49,6 @@ let g:syntastic_loc_list_height=5
 
 " automatically reload vimrc when it's saved
  au BufWritePost .vimrc so ~/.vimrc
-
 
 
 " configure Vim to auto-complete programming language syntaxe
@@ -93,6 +97,7 @@ let mapleader=","
 
 
 "vimrc standart"
+colorscheme wombat256i
 set incsearch
 set number
 set linebreak
