@@ -1,12 +1,6 @@
 #!/bin/bash
 
-##     MICHAEL's RC-init
-#
-# michaeljohann94@outlook.com
-#
-##
 #Syncs with github if needed
-
 #rc Dotfiles
 if [ ! -d $HOME/dotfile ]; then
     printf "Downloading dotfile\n"
@@ -20,14 +14,12 @@ if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
 fi
 
 #antigen for zsh
-if [ ! -e $HOME/antigen/antigen.zsh ]; then 
+if [ ! -e $HOME/antigen/antigen.zsh ]; then
     printf "Downloading antigen for ZSh\n"
     git clone https://github.com/zsh-users/antigen.git ~/antigen
 fi
 
-
 #linking rc-files
-
 function safelink {
    if [ ! -e $HOME/$1 ]; then
        ln -s $HOME/dotfile/$1 $HOME/$1
@@ -36,9 +28,7 @@ function safelink {
        echo $1 already exists
    fi
 }
-
 printf "Trying to link RunControl\n\n"
-
 safelink .vimrc
 safelink .tmux.conf
 safelink .zshrc
