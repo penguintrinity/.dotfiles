@@ -1,2 +1,2 @@
 #TODO
-- add antigen autodownload to .zshrc
+- OS-DETECTION to install dependencies
