@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Arch-linux packages
+if [ -e /bin/pacman ]; then
+    sudo pacman -S tmux vim zsh
+fi
+
 #Syncs with github if needed
 #rc Dotfiles
 if [ ! -d $HOME/dotfile ]; then
