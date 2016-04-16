@@ -20,7 +20,7 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/syntastic'
-Plugin 'edkolev/tmuxline.vim'
+"Plugin 'edkolev/tmuxline.vim'"
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 
