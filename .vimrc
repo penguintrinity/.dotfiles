@@ -20,8 +20,6 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/syntastic'
-"Plugin 'edkolev/tmuxline.vim'"
-Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 
 call vundle#end()            " required
@@ -31,12 +29,6 @@ filetype plugin indent on    " required
 "Pydiction"
 let g:pydiction_location = '/home/michaemichaell/.vim/bundle/Pydiction/complete-dict'
 let g:pydiction_menu_height = 3
-
-"airline"
-let g:airline_powerline_fonts = 1
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 20 
-"let g:airline_theme='solarized'
-set laststatus=2
 
 "syntasitic"
 set statusline+=%#warningmsg#
@@ -61,11 +53,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " ignorecase
 
-
-"TMUX-Line"
-"let g:airline#extensions#tmuxline#enabled = 1 
-let g:tmuxline_preset = 'powerline'
-let g:tmuxline_theme = 'powerline'
 
 
 "pep und flakes"
@@ -97,7 +84,7 @@ let mapleader=","
 
 
 "vimrc standart"
-colorscheme wombat256i
+colorscheme DevC++
 set incsearch
 set number
 set linebreak
