@@ -18,6 +18,12 @@ if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
+#tmux plugin manager 
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    printf "Downloading Tmux plugin Manager\n"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 #antigen for zsh
 if [ ! -e $HOME/antigen/antigen.zsh ]; then
     printf "Downloading antigen for ZSh\n"
