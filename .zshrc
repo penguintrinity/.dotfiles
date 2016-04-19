@@ -47,5 +47,10 @@ antigen theme agnoster
 antigen apply
 
 alias dfh='df -h'
-
+#powerline
+#if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#        source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+#    fi
 echo 'zsh complete'
+
+#. /home/michael/.local/bin/powerline/bindings/zsh/powerline.zsh

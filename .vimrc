@@ -22,6 +22,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -64,13 +66,14 @@ let g:pyflakes_use_quickfix = 0
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-
 "Disable arrow-keys"
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+"powerline"
+set laststatus=2
 
 "Disable arrow-keys in insert mode"
 imap <up> <nop>
