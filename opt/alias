@@ -1,4 +1,16 @@
+#!/bin/zsh
+#for quicker cleaning
 alias cls=clear
+alias df="pydf -B"
 alias mkdir="mkdir -pv"
 alias wget="wget -c"
 alias top=htop
+
+#safety net
+alias rm='rm -I --preserve-root'
+
+# reboot / halt / poweroff
+ alias reboot='sudo /sbin/reboot'
+ alias poweroff='sudo /sbin/poweroff'
+ alias halt='sudo /sbin/halt'
+ alias shutdown='sudo /sbin/shutdown'
