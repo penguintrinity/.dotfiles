@@ -1,0 +1,4 @@
+alias cls=clear
+alias mkdir="mkdir -pv"
+alias wget="wget -c"
+alias top=htop

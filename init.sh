@@ -2,7 +2,7 @@
 
 # Arch-linux packages
 if [ -e /bin/pacman ]; then
-    sudo pacman -S tmux vim zsh powerline powerline-fonts
+    sudo pacman -S tmux vim zsh powerline powerline-fonts pydf
 fi
 
 #Syncs with github if needed
