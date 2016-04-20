@@ -36,11 +36,11 @@ antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-history-substring-search
 
 # Load the theme.
-antigen theme agnoster
+#antigen theme agnoster
 #antigen theme sporty_256
 #antigen theme clean
 #antigen theme jdavis/zsh-files themes/jdavis
-#antigen theme caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+antigen theme caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 ##antigen theme eli-oat/bashi
 
 # Tell antigen that you're done.
