@@ -45,12 +45,12 @@ antigen theme agnoster
 
 # Tell antigen that you're done.
 antigen apply
-
-alias dfh='df -h'
 #powerline
 #if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
 #        source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 #    fi
+
+source ~/dotfile/opt/alias
 echo 'zsh complete'
 
 #. /home/michael/.local/bin/powerline/bindings/zsh/powerline.zsh
