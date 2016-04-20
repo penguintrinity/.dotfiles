@@ -1,6 +1,8 @@
 #!/bin/zsh
 #for quicker cleaning
 alias cls=clear
+
+#misc
 alias df="pydf -B"
 alias mkdir="mkdir -pv"
 alias wget="wget -c"
