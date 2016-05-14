@@ -1,7 +1,7 @@
 #!/bin/bash
 # Arch-linux packages
 if [ -e /bin/pacman ]; then
-    sudo pacman -S tmux vim zsh powerline powerline-fonts pydf
+    sudo pacman -S tmux vim zsh powerline powerline-fonts pydf wget curl
 fi
 
 #Syncs with github if needed
@@ -30,7 +30,6 @@ if [ ! -e $HOME/antigen/antigen.zsh ]; then
 fi
 #link powerline to ~/.local/bin
 function safelinkd {
-
     if [ ! -d $HOME/$2 ]; then
         ln -s $1 $HOME/$2
         echo $(basename $1) linked succesfully
@@ -52,7 +51,6 @@ printf "Trying to link RunControl\n\n"
 safelink .vimrc
 safelink .tmux.conf
 safelink .zshrc
-
 safelinkd /usr/lib/python3.5/site-packages/powerline .local/bin/powerline
 
 #change shell to zsh
