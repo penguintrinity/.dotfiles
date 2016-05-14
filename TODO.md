@@ -2,5 +2,5 @@
 
 ## Mandatory ##
 
-## Optional 
+## Optional ## 
 * OS-Detection
