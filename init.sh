@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Arch-linux packages
 if [ -e /bin/pacman ]; then
     sudo pacman -S tmux vim zsh powerline powerline-fonts pydf
@@ -29,6 +28,16 @@ if [ ! -e $HOME/antigen/antigen.zsh ]; then
     printf "Downloading antigen for ZSh\n"
     git clone https://github.com/zsh-users/antigen.git ~/antigen
 fi
+#link powerline to ~/.local/bin
+function safelinkd {
+
+    if [ ! -d $HOME/$2 ]; then
+        ln -s $1 $HOME/$2
+        echo $(basename $1) linked succesfully
+    else
+        echo $(basename $1) already exists in $2 
+    fi
+}
 
 #linking rc-files
 function safelink {
@@ -43,6 +52,8 @@ printf "Trying to link RunControl\n\n"
 safelink .vimrc
 safelink .tmux.conf
 safelink .zshrc
+
+safelinkd /usr/lib/python3.5/site-packages/powerline .local/bin/powerline
 
 #change shell to zsh
 if [ $SHELL != "/bin/zsh" ]; then
