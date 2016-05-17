@@ -2,7 +2,6 @@ export ZSH_TMUX_AUTOSTART='true'
 #export TERM='xterm-256color'
 export EDITOR='vim'
 source /home/michael/antigen/antigen.zsh
-echo 'zsh initializing'
 
 # Check for antigen
 if [ ! -e $HOME/antigen/antigen.zsh ]; then
@@ -58,6 +57,5 @@ antigen apply
 #    fi
 
 source ~/dotfile/opt/alias
-echo 'zsh complete'
 
 #. /home/michael/.local/bin/powerline/bindings/zsh/powerline.zsh
