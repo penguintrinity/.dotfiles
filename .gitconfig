@@ -10,3 +10,8 @@
         default = simple
 [help]
         autocorrect = 12
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
