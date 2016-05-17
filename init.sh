@@ -5,15 +5,15 @@ VundlePath=$HOME/.vim/bundle/Vundle.vim
 TpmPath=$HOME/.tmux/plugins/tpm
 DotfilePath=$HOME/dotfile
 
-function repo {
-
-# Arch-linux packages
+function dep {
+#Arch Dependencies
 if [ -e /bin/pacman ]; then
     sudo pacman -Syu tmux vim zsh powerline powerline-fonts pydf wget curl --noconfirm 
 fi
+}
 
-#Syncs with github if needed
-#rc Dotfiles
+function repo {
+# Dotfile Repo
 if [ ! -d $HOME/dotfile ]; then
     printf "Downloading dotfile\n"
     git clone https://github.com/michaeljo94/dotfile.git $DotfilePath 
@@ -69,12 +69,14 @@ fi
 
 function update () {
     cd $1
+    printf "Checking %s ...\t" "$(basename $1)"
     git pull
     cd $StartPWD
 }
 
 if [ "$1" == "install" ]; then
 
+    dep
     repo
     install
     
