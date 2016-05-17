@@ -53,9 +53,9 @@ fi
 function safelinkd {
     if [ ! -d $HOME/$2 ]; then
         ln -s $1 $HOME/$2
-        echo $(basename $1) linked succesfully
+        printf "%s linked succesfully" "$(basename $1)"
     else
-        echo $(basename $1) already exists in $2 
+        printf "%s already exists in %s" "$(basename $1)" "$2"
     fi
 }
 
@@ -63,13 +63,12 @@ function safelinkd {
 function safelink {
    if [ ! -e $HOME/$1 ]; then
        ln -s $HOME/dotfile/$1 $HOME/$1
-       echo $1 linked succesfully\n
+       printf "%s linked succesfully\n" "$1"
    else
-       echo $1 already exists\m
+      printf "%s already exists\n" "$1"
    fi
 }
 function install {
-printf "Trying to link RunControl\n\n"
 
 safelink .gitconfig
 safelink .vimrc
@@ -96,6 +95,7 @@ if [ "$1" == "install" ]; then
 
     dep
     repo
+    printf "\e[1m\e[32m:: \e[91mLINKING FILES\e[0m\e[39m\n"
     install
 
     elif [ "$1" == "yaourt" ]; then
