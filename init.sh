@@ -6,16 +6,16 @@ TpmPath=$HOME/.tmux/plugins/tpm
 DotfilePath=$HOME/dotfile
 
 function dep {
-#Arch Dependencies
 if [ -e /bin/pacman ]; then
     sudo pacman -Syu tmux vim zsh openssl yajl powerline powerline-fonts pydf wget curl --noconfirm 
 fi
 }
+
 function jogurt {
 
     mkdir /tmp/$USER-yaourt
     cd /tmp/$USER-yaourt
-    
+
     git clone https://aur.archlinux.org/package-query.git
     cd package-query
     makepkg -si --noconfirm
@@ -29,27 +29,30 @@ function jogurt {
     rm -rf /tmp/$USER-yaourt
 }
 
-
-function repo {
+function dotrepo {
 # Dotfile Repo
 if [ ! -d $HOME/dotfile ]; then
     printf "Downloading dotfile\n"
     git clone https://github.com/michaeljo94/dotfile.git $DotfilePath 
 fi
+}
 
+function vundle {
 #Vundel for vim
 if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
     printf "Downloading Vundle for Vim\n"
     git clone https://github.com/VundleVim/Vundle.vim.git $VundlePath
 fi
+}
 
+function tpm {
 #tmux plugin manager 
 if [ ! -d $HOME/.tmux/plugins/tpm ]; then
     printf "Downloading Tmux plugin Manager\n"
     git clone https://github.com/tmux-plugins/tpm $TpmPath
 fi
 }
-#link powerline to ~/.local/bin
+
 function safelinkd {
     if [ ! -d $HOME/$2 ]; then
         ln -s $1 $HOME/$2
@@ -59,7 +62,6 @@ function safelinkd {
     fi
 }
 
-#linking rc-files
 function safelink {
    if [ ! -e $HOME/$1 ]; then
        ln -s $HOME/dotfile/$1 $HOME/$1
@@ -68,7 +70,7 @@ function safelink {
       printf "%s already exists\n" "$1"
    fi
 }
-function install {
+function linking {
 
 safelink .gitconfig
 safelink .vimrc
@@ -76,12 +78,6 @@ safelink .tmux.conf
 safelink .zshrc
 safelinkd /usr/lib/python3.5/site-packages/powerline .local/bin/powerline
 
-#change shell to zsh
-if [ $SHELL != "/bin/zsh" ]; then
-    chsh -s /bin/zsh
-  else
-    printf "you are alread using ZSh\n\n"
-fi
 }
 
 function update () {
@@ -91,23 +87,47 @@ function update () {
     cd $StartPath
 }
 
-if [ "$1" == "install" ]; then
-
-    dep
-    repo
-    printf "\e[1m\e[32m:: \e[91mLINKING FILES\e[0m\e[39m\n"
-    install
-
-    elif [ "$1" == "yaourt" ]; then
-
-        jogurt
-
-    elif [ "$1" == "update" ]; then
-
+case $1 in
+    "install" )
+        case $2 in 
+            "all" )
+                dep
+                dotrepo
+                vundel
+                tpm
+                linking
+                if [ $SHELL != "/bin/zsh" ]; then
+                    chsh -s /bin/zsh
+                else
+                    printf "you are alread using ZSh\n\n"
+                fi
+                ;;
+            "vundle" )
+                if [ -e /bin/pacman ]; then
+    sudo pacman -Syu vim openssl powerline powerline-fonts git wget curl --noconfirm 
+                fi
+                vundle
+                safelink .vimrc
+                ;;
+            "tpm" )
+                if [ -e /bin/pacman ]; then
+    sudo pacman -Syu tmux openssl powerline powerline-fonts git wget curl --noconfirm 
+                fi
+                tpm
+                safelink .tmux.conf
+                ;;
+            "yaourt" )
+                yaourt
+            ;;
+        esac
+            ;;
+    "update" )
+        dep
         update $DotfilePath
         update $VundlePath
         update $TpmPath
-
-    else
-            echo "This is a feature not a bug"
-        fi
+        ;;
+    * )
+        echo sounds like a bug not a feature
+        ;;
+esac
