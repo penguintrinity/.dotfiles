@@ -8,9 +8,27 @@ DotfilePath=$HOME/dotfile
 function dep {
 #Arch Dependencies
 if [ -e /bin/pacman ]; then
-    sudo pacman -Syu tmux vim zsh powerline powerline-fonts pydf wget curl --noconfirm 
+    sudo pacman -Syu tmux vim zsh openssl yajl powerline powerline-fonts pydf wget curl --noconfirm 
 fi
 }
+function jogurt {
+
+    mkdir /tmp/$USER-yaourt
+    cd /tmp/$USER-yaourt
+    
+    git clone https://aur.archlinux.org/package-query.git
+    cd package-query
+    makepkg -si --noconfirm
+    cd ..
+    git clone https://aur.archlinux.org/yaourt.git
+    cd yaourt
+    makepkg -si --noconfirm
+    cd ..
+    
+    cd $StartPath
+    rm -rf /tmp/$USER-yaourt
+}
+
 
 function repo {
 # Dotfile Repo
@@ -71,7 +89,7 @@ function update () {
     cd $1
     printf "Checking %s ...\t" "$(basename $1)"
     git pull
-    cd $StartPWD
+    cd $StartPath
 }
 
 if [ "$1" == "install" ]; then
@@ -79,7 +97,11 @@ if [ "$1" == "install" ]; then
     dep
     repo
     install
-    
+
+    elif [ "$1" == "yaourt" ]; then
+
+        jogurt
+
     elif [ "$1" == "update" ]; then
 
         update $DotfilePath
