@@ -1,0 +1,12 @@
+[user]
+	name = michaeljo94
+	email = michaeljohann94@gmail.com
+	signingkey = E13DED28
+[credential]
+	helper = store
+[core]
+	editor = vim
+[push]
+        default = simple
+[help]
+        autocorrect = 12
