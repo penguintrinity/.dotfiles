@@ -4,6 +4,7 @@ export EDITOR='vim'
 source /home/michael/antigen/antigen.zsh
 echo 'zsh initializing'
 
+# Check for antigen
 if [ ! -e $HOME/antigen/antigen.zsh ]; then
     printf("Antigen missing...")
     git clone https://github.com/zsh-users/antigen.git ~/antigen
