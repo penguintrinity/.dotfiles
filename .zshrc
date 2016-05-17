@@ -3,6 +3,12 @@ export ZSH_TMUX_AUTOSTART='true'
 export EDITOR='vim'
 source /home/michael/antigen/antigen.zsh
 echo 'zsh initializing'
+
+if [ ! -e $HOME/antigen/antigen.zsh ]; then
+    printf("Antigen missing...")
+    git clone https://github.com/zsh-users/antigen.git ~/antigen
+fi
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
