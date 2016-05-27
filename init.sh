@@ -7,7 +7,7 @@ DotfilePath=$HOME/dotfile
 
 function dep {
 if [ -e /bin/pacman ]; then
-    sudo pacman -Syu tmux vim zsh openssl yajl powerline powerline-fonts pydf wget curl --noconfirm 
+    sudo pacman -Syu tmux vim zsh openssl yajl powerline powerline-fonts pydf wget curl --noconfirm
 fi
 }
 
@@ -24,7 +24,7 @@ function jogurt {
     cd yaourt
     makepkg -si --noconfirm
     cd ..
-    
+
     cd $StartPath
     rm -rf /tmp/$USER-yaourt
 
@@ -35,7 +35,7 @@ function dotrepo {
 
 if [ ! -d $HOME/dotfile ]; then
     printf "Downloading dotfile\n"
-    git clone https://github.com/michaeljo94/dotfile.git $DotfilePath 
+    git clone https://github.com/michaeljo94/dotfile.git $DotfilePath
 fi
 }
 
@@ -49,7 +49,7 @@ fi
 }
 
 function tpm {
-#tmux plugin manager 
+#tmux plugin manager
 
 if [ ! -d $HOME/.tmux/plugins/tpm ]; then
     printf "Downloading Tmux plugin Manager\n"
@@ -79,6 +79,7 @@ function safelink {
 function linking {
 
 safelink .gitconfig
+safelink .gitignore
 safelink .vimrc
 safelink .tmux.conf
 safelink .zshrc
@@ -105,7 +106,7 @@ if [[ $EUID -eq 0 ]]; then
 
 case $1 in
     "install" )
-        case $2 in 
+        case $2 in
             "all" )
                 dep
                 dotrepo
@@ -120,14 +121,14 @@ case $1 in
                 ;;
             "vundle" )
                 if [ -e /bin/pacman ]; then
-    sudo pacman -Syu vim openssl powerline powerline-fonts git wget curl --noconfirm 
+    sudo pacman -Syu vim openssl powerline powerline-fonts git wget curl --noconfirm
                 fi
                 vundle
                 safelink .vimrc
                 ;;
             "tpm" )
                 if [ -e /bin/pacman ]; then
-    sudo pacman -Syu tmux openssl powerline powerline-fonts git wget curl --noconfirm 
+    sudo pacman -Syu tmux openssl powerline powerline-fonts git wget curl --noconfirm
                 fi
                 tpm
                 safelink .tmux.conf
@@ -138,7 +139,7 @@ case $1 in
         esac
             ;;
     "update" )
-        case $2 in 
+        case $2 in
             "all" )
                 update $DotfilePath
                 update $VundlePath
