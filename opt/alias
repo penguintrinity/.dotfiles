@@ -11,8 +11,15 @@ alias top=htop
 #safety net
 alias rm='rm -I --preserve-root'
 
+# Pacman ophran removel
+# pacman -Rs $(pacman -Qqtd)
+#alias pacophran="sudo pacman -Rs $(pacman -Qqtd)"
+
 # reboot / halt / poweroff
  alias reboot='sudo /sbin/reboot'
  alias poweroff='sudo /sbin/poweroff'
  alias halt='sudo /sbin/halt'
  alias shutdown='sudo /sbin/shutdown'
+
+# prevent typo
+ alias :q=exit
