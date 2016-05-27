@@ -1,6 +1,8 @@
-export ZSH_TMUX_AUTOSTART='true'
-#export TERM='xterm-256color'
+#export ZSH_TMUX_AUTOSTART='true'
+export TERM='rxvt-unicode-256color'
 export EDITOR='vim'
+export WORKON_HOME="$HOME/.virtualenvwrapper"
+source /usr/bin/virtualenvwrapper.sh
 source /home/michael/antigen/antigen.zsh
 
 # Check for antigen
@@ -12,7 +14,7 @@ fi
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle gpg-agent
 antigen bundle ssh-agent
 antigen bundle systemd
@@ -24,6 +26,7 @@ antigen bundle heroku
 antigen bundle history
 antigen bundle pip
 #antigen bundle command-not-found
+antigen bundle virtualenvwrapper
 antigen bundle tmuxinator
 antigen bundle tmux
 antigen bundle autojump
@@ -46,7 +49,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 #antigen theme sporty_256
 #antigen theme clean
 #antigen theme jdavis/zsh-files themes/jdavis
-antigen theme caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+#antigen theme caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+antigen theme bhilburn/powerlevel9k powerlevel9k
 ##antigen theme eli-oat/bashi
 
 # Tell antigen that you're done.
@@ -59,3 +63,4 @@ antigen apply
 source ~/dotfile/opt/alias
 
 #. /home/michael/.local/bin/powerline/bindings/zsh/powerline.zsh
+archey3
